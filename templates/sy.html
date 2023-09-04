@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src='https://cdn.jsdelivr.net/npm/@master/style'></script>
+<script src='https://cdn.jsdelivr.net/npm/@master/styles'></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+#m{
+  position: relative;
+  top:300px;
+  min-width: 10%; 
+  min-height: 10%;
+}
+
+.content {
+  position: relative;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #f1f1f1;
+  height: 750px;
+  width: 100%;
+  padding: 20px;
+}
+  .mydict div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+
+  .mydict input[type="radio"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .mydict input[type="radio"]:checked + span {
+    box-shadow: 0 0 0 0.0625em #0043ed;
+    background-color: #dee7ff;
+    z-index: 1;
+    color: #0043ed;
+  }
+
+  label span {
+    display: block;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 0.375em .75em;
+    position: relative;
+    margin-left: .0625em;
+    box-shadow: 0 0 0 0.0625em #b5bfd9;
+    letter-spacing: .05em;
+    color: #3e4963;
+    text-align: center;
+    transition: background-color .5s ease;
+  }
+
+  label:first-child span {
+    border-radius: .375em 0 0 .375em;
+  }
+
+  label:last-child span {
+    border-radius: 0 .375em .375em 0;
+  }
+#btn{
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #cecece;
+  text-shadow: none;
+  background: transparent;
+  box-shadow: transparent;
+  border: 1px solid #ffffff80;
+  transition: 0.5s ease;
+  user-select: none;
+  position:absolute;
+  top:90%;
+  right:2px;
+}
+#btn:hover,:focus {
+  color: #e9fa00;
+  background: #008cff;
+  border: 1px solid #008cff;
+  text-shadow: 0 0 5px #ff0000,
+              0 0 10px #ff0000,
+              0 0 20px #ff0000;
+  box-shadow: 0 0 5px #008cff,
+              0 0 20px #008cff,
+              0 0 50px #008cff,
+              0 0 100px #008cff;
+}
+#btn1{
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #cecece;
+  text-shadow: none;
+  background: transparent;
+  box-shadow: transparent;
+  border: 1px solid #ffffff80;
+  transition: 0.5s ease;
+  user-select: none;
+  position:absolute;
+  top:90%;
+  right:2px;
+}
+#btn1:hover:focus {
+  color: #ecedf2;
+  background: #ff0000;
+  border: 1px solid #008cff;
+  text-shadow: 0 0 5px #000000,
+              0 0 10px #000000,
+              0 0 20px #000000;
+  box-shadow: 0 0 5px #008cff,
+              0 0 20px #008cff,
+              0 0 50px #008cff,
+              0 0 100px #008cff;
+}
+#btn1{
+  background-color:rgba(0, 0, 0, 0.0);
+  color:rgb(255, 255, 255);
+  height:50px;
+  width:50px;
+  font-size: medium;
+  border:none
+}
+@keyframes loader_5191 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.loading {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left:47%;
+  bottom:50%;
+}
+
+.d1 ,
+.d2 {
+  border: 5px solid #64dfdf;
+  border-radius: 50px;
+}
+
+.loading .d1 {
+  width: 85px;
+  height: 85px;
+  position: absolute;
+  top: -9px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: load161 1s linear infinite;
+}
+
+.loading .d2 {
+  width: 50px;
+  height: 50px;
+  border-top-color: transparent;  
+  border-bottom-color: transparent;
+  margin: 12.5px;
+  animation: load2812 2s linear infinite;
+}
+
+@keyframes load161 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load2812 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="static/bg.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+  <div class="topnav" id="myTopnav" style="background-color:radial-gradient(rgba(255, 252, 252, 0.6),rgba(0,0,0,0));color:azure;height: 144px;font-size:20px;width:100%;display:flex;justify-content:space-evenly;align-items:center">
+    <img src="static/il_fullxfull.2240394309_otqr.webp" style="height:72px;left:0px">
+    <h2 style="top:0px;left:144px">Wolff Parkinson White Syndrome</h2>
+       <a  href='index'> <button id ="btn0" style="background-color:rgba(0, 0, 0, 0.0);box-shadow:transparent;color:rgb(255, 255, 255);height:50px;width:50px;font-size: medium;border:none"><b>Home</b></button></a>
+       <a  href='detect'> <button id = "btn0"style="background-color:rgba(0, 0, 0, 0.0);box-shadow:transparent;color:rgb(255, 255, 255);height:50px;width:70px;font-size: medium;border:none"><b>Detect</b></button></a>
+       <a  href='sy'>  <button id="btn0" style="background-color:rgba(0, 0, 0, 0.0);box-shadow:transparent;color:rgb(255, 255, 255);height:50px;width:95px;font-size: medium;border:none"><b>Symptoms</b></button></a>
+       <a  href='ce'> <button  id="btn0" style="background-color:rgba(0, 0, 0, 0.0);box-shadow:transparent;color:rgb(255, 255, 255);height:50px;width:160px;font-size: medium;border:none"><b>Medical Centres</b></button></a>
+       <a  href='Tr'> <button   id="btn0" style="background-color:rgba(0, 0, 0, 0.0);box-shadow:transparent;color:rgb(255, 255, 255);height:50px;width:120px;font-size: medium;border:none"><b>Treatment</b></button></a>
+  </div>
+
+<div class="d:flex bg:white/.1 b:1;white/.1 p:10 r:10 bd:blur(2)" style="padding-top: 10px;height: fit-content" id="b" style="color:#f1f1f1;">
+  <div class="box"> 
+  <h1>Symptoms</h1>
+  <h5>If you have WPW syndrome, you may experience episodes where your heart suddenly starts racing, <br>before stopping or slowing down abruptly.This rapid heart rate is called supraventricular tachycardia (SVT).</h3>
+  <h3>During an episode, you may experience symptoms such as:</h3>
+  <p>-a pounding or fluttering heartbeat (<a style="color: #f1f1f1;" href="https://www.nhs.uk/conditions/heart-palpitations/">heart palpitations</a>)<br><br>
+  -feeling <a style="color: #f1f1f1;" href="https://www.nhs.uk/conditions/dizziness/">lightheaded or dizzy</a><br><br>
+  -<a  style="color: #f1f1f1;" href="https://www.nhs.uk/conditions/shortness-of-breath/">shortness of breath</a><br><br>
+  -<a style ="color:#f1f1f1"href="https://www.nhs.uk/conditions/chest-pain/">chest pain</a><br><br>
+  -passing out (<a style="color: #f1f1f1;" href="https://www.nhs.uk/conditions/fainting/">fainting</a>)<br><br>
+  <h2 style="color:red">These episodes can last for seconds, minutes or hours.</h2>
+  </p>
+  </div>
+		<div class="box" style="width:500px;height:550px;position: relative;left:150px">
+				<center><h1>Do you need an ECG ?</h1></center>  
+        <form method="post" action="sy"> 
+				<div><label for="name">Enter your Heartrate (no. of beats per minute):</label>
+					<input type="number" id="name" name="name" required
+						   minlength="0" maxlength="8" size="10" style="background-color: #cecece;"></div>
+               <div class="mydict">
+                <label>Do you experience chest-pain ?</label>
+                <div>
+                  <label>
+                    <input type="radio" name="group1"  id ="cp1" checked="" value="1">
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="group1" value="0" id="cp2">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mydict">
+                <label for="name">Do you experience difficulty breathing ?</label>
+                <div>
+                  <label>
+                    <input type="radio" name="group2" checked="" value="1" id="db1">
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="group2" value="0" id="db2">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mydict">
+                <label for="name">Do you often get dizzy ?</label>
+                <div>
+                  <label>
+                    <input type="radio" name="group3" checked="" value="1" id="di1">
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="group3" value="0" id="di2">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mydict">
+                <label for="name">Do you faint often ?</label>
+                <div>
+                  <label>
+                    <input type="radio" name="group4" checked="" value="1" id="fn1">
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="group4" value="0" id="fn2">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mydict">
+                <label for="name">Do you constantly feel tired ?</label>
+                <div>
+                  <label>
+                    <input type="radio" name="group5" checked="" value="1" id="ft1">
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="group5" value="0" id="ft2">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mydict">
+                <label for="name">Are you always anxious ?</label>
+                <div>
+                  <label>
+                    <input type="radio" name="group6" checked="" value="1" id="an1">
+                    <span>Yes</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="group6" value="0" id="an2">
+                    <span>No</span>
+                  </label>
+                </div>
+              </div> 
+        <button id="btn" class="submit" onclick="showPreloader">
+          Detect
+        </button>
+	</button>
+        </form>
+        </div>
+      <div class="box" style="position:absolute;bottom:10px;right: 40%">
+        {% if pred == [1]: %}
+  <h1 style="color:rgb(255, 221, 0)">You need to get an ECG</h1>
+  <a href ='ce'><button id ="btn" style="position: relative;top:1px;left:5px">Medical Centers</button></a>
+	{% elif pred==[0]: %}
+
+  <h1 style="color:green">You are fine!</h1>
+	{% endif %}
+</div>
+<div class="loading" id="preloader" style="display: none;">
+    <div class="d1"></div>
+    <div class="d2"></div>
+</div>
+<script>
+  let btn = document.getElementById("btn")
+  btn.addEventListener("click", showPreloader)
+  function showPreloader() {
+      document.getElementById("preloader").style.display = "block";
+      setTimeout(hidePreloader, 5000);
+  }
+
+  function hidePreloader() {
+      document.getElementById("preloader").style.display = "none";
+  }
+</script>
+</body>
+</html>
+    
